@@ -1,0 +1,39 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color:rgb(122, 139, 224);    
+}
+
+.box {
+    display: Inline-block;
+    height: 200px;
+    width: 200px;
+    text-align: center;
+    background-color: rgb(208, 238, 238);
+    border: 2px solid rgb(169, 179, 228);
+}
+/* h5, h4{
+    color:rgb(122, 139, 224);
+} */
+#activities {
+    display: Inline-block;
+    height: 200px;
+    width: 830px;
+    text-align: left;
+    overflow: auto;
+    background-color: rgba(208, 238, 238, 0.466);
+}
+.green {
+    color: rgb(78, 184, 78);
+}
+.orange {
+    color: rgb(218, 210, 109);
+}
+.blue {
+    color: rgb(123, 169, 212);
+}
+.purple {
+    color: rgb(161, 123, 212);
+}
+.red {
+    color: rgb(212, 123, 123);
+}

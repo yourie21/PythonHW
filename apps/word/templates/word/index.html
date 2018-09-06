@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Frist Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'word/main.css' %}" /><!--it searches from our first_app's static folder. there's no folder after but immediate css file-->
+</head>
+<body>
+    <h2>Hi Yourie :) </h2>
+    <form action="/word/process" method="POST">
+        {% csrf_token %}
+        <h2>Add a new word: </h2>
+        <input type="text" name="word">
+
+        <h4>Choose Color</h4>
+        <input type="radio" name="color" value="red"> Red<br>
+        <input type="radio" name="color" value="green"> Green<br>
+        <input type="radio" name="color" value="blue"> Blue  <br>
+        
+        <input type="checkbox" name="font"> Make the Font big <br>
+
+        <input type="submit" value="SUBMIT">
+    </form>
+    <hr>
+
+    <a href="/word/reset"> <button > Reset Session!! </button> </a>
+
+    <h3> The Words You've Entered:</h3>
+    <div id="log">
+        {% for i in request.session.log %}
+            <p class="{{i.color}} {{i.font}}"> {{ i.word }} :)  {{ i.time }} </p>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

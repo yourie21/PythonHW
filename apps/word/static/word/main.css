@@ -1,0 +1,22 @@
+#log { 
+    display: Inline-block;
+    height: 200px;
+    width: 800px;
+    text-align: left;
+    /* overflow: auto; */
+}
+.green {
+    color: rgb(72, 187, 72);
+}
+.red {
+    color: rgb(202, 74, 74);
+}
+.blue {
+    color: rgb(64, 64, 199);
+}
+.large {
+    font-size: 30px;
+}
+.small {
+    font-size: 18px;
+}

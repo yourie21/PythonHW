@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hello</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+</head>
+<body>
+    hello
+
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>full name</th>
+            <th>email</th>
+            <th>created at</th>
+            <th>actions</th>
+        </thead>
+        <tbody> 
+            <!--user is dictionary (one row of data), all_users is dict that has many user dicts(table). So user.id means, in user dict, call the key "id", to see value of the key.-->
+            {% for user in all_users %}
+                <tr>
+                    <td> {{ user.id }}</td>
+                    <td> <a href="/users/{{user.id}}">{{ user.first }} {{ user.last }} </a> </td>
+                    <td> {{ user.email }}</td>
+                    <td> {{ user.created_at }}</td>
+                    <td> <a href="/users/{{user.id}}">show </a> | <a href="/users/{{user.id}}/edit"> edit </a> | <a href="/users/{{user.id}}/destroy"> delete </a></td>
+                </tr>
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+        <a href="/users/new">go to new page</a>
+</body>
+</html>

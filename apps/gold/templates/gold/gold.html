@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gold Diggin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    {% load static %}
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'gold.css' %}" /><!--it searches from our first_app's static folder. there's no folder after but immediate css file-->
+</head>
+<body>
+    <h2>Hello Yourie :) </h2>
+    <h3>This Is Your Gold Amount: {{ request.session.gold }} </h3>
+    <div class="box">
+    <form action="/gold/process" method="POST">
+        {% csrf_token %}  
+        <h4>Farm</h4>
+        <h5>(earns 10-20 golds)</h5>
+        <input type="text" name="location" value="farm" hidden>
+        <input type="submit" value="Dig Some Gold!">
+    </form>
+    </div>
+
+    <div class="box">
+    <form action="/gold/process" method="POST">
+        {% csrf_token %}  
+        <h4>Cave</h4>
+        <h5>(earns 5-10 golds)</h5>
+        <input type="text" name="location" value="cave" hidden>
+        <input type="submit" value="Dig Some Gold!">
+    </form>
+    </div>
+
+    <div class="box">
+    <form action="/gold/process" method="POST">
+        {% csrf_token %}  
+        <h4>House</h4>
+        <h5>(earns 2-5 golds)</h5>
+        <input type="text" name="location" value="house" hidden>
+        <input type="submit" value="Dig Some Gold!">
+    </form>
+    </div>
+
+    <div class="box">
+    <form action="/gold/process" method="POST">
+        {% csrf_token %}  
+        <h4>Casino</h4>
+        <h5>(earns/takes 0-50 golds)</h5>
+        <input type="text" name="location" value="casino" hidden>
+        <input type="submit" value="Dig Some Gold!">
+    </form>
+    </div>
+    
+    <a href="/gold/reset"> <button > Reset Session!! </button> </a>
+    
+    <h4>Logs: </h4>
+    <div id="activities">
+        {% for i in request.session.list %}
+            <p class="{{ i.color }}"> {{ i.log }} :)  {{ i.time }} </p>
+        {% endfor %}
+        
+    </div>
+
+</body>
+</html>

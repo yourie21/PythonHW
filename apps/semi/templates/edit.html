@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>edit page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+</head>
+<body>       
+    <h2>Edit users</h2>
+    <form action="/users/update" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="user_id" value="{{euser.id}}">
+              <!-- value="" below is to grab data's dictionary from edit method, 
+        and display it on the field, so user can see (like placeholder) 
+        and edit faster (pre-filled out form is what value={{euser.first}}) -->
+ 
+        first name:  <input type="text" name="first" value="{{euser.first}}">
+        last name:  <input type="text" name="last" value="{{euser.last}}">
+        email:  <input type="text" name="email" value="{{euser.email}}">
+        <input type="submit" value="add user">
+    </form>
+    <a href="/users">Back to Home</a> | <a href="/users/{{euser.id}}"> Show detail</a>
+</body>
+</html>
